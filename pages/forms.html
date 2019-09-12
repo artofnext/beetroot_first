@@ -35,9 +35,9 @@
         </select>
         <br>
 
-        <textarea name="some_text" style="width: 50%; height: auto">
-
-</textarea>
+        <!-- textarea preserve formatting of its content so if you put some tag inside it won't work-->
+        <textarea name="some_text" style="width: 50%; height: auto">Lorem ipsum dolor sit amet,consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </textarea>
 
         <br>
 
@@ -50,7 +50,7 @@
         <!-- Thous work as they should -->
         <button type="reset">Reset</button>
 
-        <!-- But behavier of this depends on browser, to submittion better use <input type="submit"> -->
+        <!-- But behavier of this depends on browser, for submittion better use <input type="submit"> -->
         <button type="button">Button</button>
     </form>
 </body>
