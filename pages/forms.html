@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
@@ -17,6 +17,7 @@
         Name: <input value="Vasya" name="name" /><br>
         Birth: <input type="date" name="birth" /><br>
         Gender:
+        <!-- the same names of fields connect them -->
         Male<input type="radio" name="gender" value="male" />
         Femail<input type="radio" name="gender" value="femail" />
         <br>
@@ -30,19 +31,27 @@
             <option value="2" selected>Opt2</option>
             <option value="3">Opt3</option>
             <option value="4">Opt4</option>
-            <option value="5">Opt5</option>
+            <option value="5">Opt6</option> 
         </select>
         <br>
-        <textarea name="some_text" style="width: 100%; height: 300px">
+
+        <textarea name="some_text" style="width: 50%; height: auto">
 
 </textarea>
 
         <br>
 
+        <!-- Submit form -->
         <input type="submit" value="Go!" />
+
+        <!-- Just button, does nothing -->
         <input type="button" value="Button" />
-        <!-- todo figure out how this works!-->
-        <button>Button</button>
+
+        <!-- Thous work as they should -->
+        <button type="reset">Reset</button>
+
+        <!-- But behavier of this depends on browser, to submittion better use <input type="submit"> -->
+        <button type="button">Button</button>
     </form>
 </body>
 
