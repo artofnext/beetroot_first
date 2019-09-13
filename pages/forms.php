@@ -1,6 +1,9 @@
 <?PHP 
-
-if (isset($_GET['name'])) $name = $_GET['name'];
+$skills = false;
+if (isset($_GET['name'])) {
+    $name = $_GET['name'];
+    $skills = $_GET['skills'];
+}
 else $name = "Not specified";
 
 echo <<<_END
@@ -19,7 +22,29 @@ echo <<<_END
         <h1><a href="../index.html">Back</a></h1>
         <hr>
     </header>
-    <h2>Your name: $name<br>
+    <h2>Your name: $name</h2><br>
+    <h2>Your skills: </h2>
+_END;
+?>
+<?php 
+if ($skills) {
+    if (is_array($skills)) {
+        echo "<ul>";
+        foreach ($skills as $skill) {
+            echo "<li>" . $skill . "</li>";
+        }
+        echo "</li>";
+    }
+    else {
+        echo "<p>" . $skills . "</p>";
+    }
+}
+else {
+    echo "<span>You have not skills yet!</span>";
+}
+    ?>
+    <?php
+    echo <<<_END
     <form action="" method="GET">
         Name: <input value="Vasya" name="name" /><br>
         Birth: <input type="date" name="birth" /><br>
