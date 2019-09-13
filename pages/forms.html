@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1><a href="../index.html">Back</a></h1>
+        <hr>
+    </header>
+    <form action="forms.php" method="GET">
+        <!-- Hidden field for server side purposes -->
+            <input type="hidden" name="cubmitted" value="yes">
+            Name: 
+            <input placeholder="Your name here" name="name" /><br>
+            Birth: 
+            <input type="date" name="birth" /><br>
+            Gender:
+            <!-- Label makes input name field clicable  -->
+            <label for="male">Male</label>
+            <!-- the same names of fields connect them -->
+            <input type="radio" name="gender" value="male" id="male" />
+            <label for="female">Female</label>
+            <input type="radio" name="gender" value="femail" id="female" />
+            <br>
+            Skills: <label>HTML</label><input type="checkbox" name="skills[]" value="html" />
+            CSS <input type="checkbox" name="skills[]" value="css" />
+            JavaScript <input type="checkbox" name="skills[]" value="js" /><br>
+            <!-- todo try diferent types -->
+            <br>
+            <select name="lang[]" >
+                <option value="en">English</option>
+                <option value="ru" selected>Russian</option>
+                <option value="ua">Ukrainian</option>
+                <option value="pt">Portuguese</option>
+                <option value="es">Espaniol</option> 
+            </select>
+            <br>
+            <small>Use Ctrl or Command to multiple selection</small>
+            <br>
+    
+            <!-- textarea preserve formatting of its content so if you put some tag inside it won't work-->
+            <textarea name="some_text" style="width: 30%; height: auto">Lorem ipsum dolor sit amet,consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </textarea>
+    
+            <br>
+    
+            <!-- Submit form -->
+            <input type="submit" value="Go!" />
+    
+            <!-- Just button, does nothing -->
+            <input type="button" value="Button do noting" />
+    
+            <!-- Thous work as they should -->
+            <button type="reset">Reset</button>
+    
+            <!-- But behavier of this depends on browser, for submittion better use <input type="submit"> -->
+            <button type="button">Button</button>
+        </form>
+    </body>
+    </html>

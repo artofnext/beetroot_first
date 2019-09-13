@@ -47,6 +47,10 @@ else {
 }
     ?>
     <?php
+
+/* todo Hidden fields, lables */
+
+
     echo <<<_END
     <form action="" method="GET">
         Name: <input value="Vasya" name="name" /><br>
