@@ -40,7 +40,7 @@ if ($skills) {
     }
 }
 else {
-    echo "<span>You have not skills yet!</span>";
+    echo "<span>You have no skills yet!</span>";
 }
     ?>
     <?php
