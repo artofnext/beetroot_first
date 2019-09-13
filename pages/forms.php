@@ -23,12 +23,13 @@ echo <<<_END
         <hr>
     </header>
     <h2>Your name: $name</h2><br>
-    <h2>Your skills: </h2>
+    
 _END;
 ?>
 <?php 
 if ($skills) {
     if (is_array($skills)) {
+        echo "<h2>Your skills: </h2>";
         echo "<ul>";
         foreach ($skills as $skill) {
             echo "<li>" . $skill . "</li>";
@@ -36,11 +37,12 @@ if ($skills) {
         echo "</li>";
     }
     else {
+        echo "<h2>Your skill: </h2>";
         echo "<p>" . $skills . "</p>";
     }
 }
 else {
-    echo "<span>You have no skills yet!</span>";
+    echo "<h2>You have no skills yet</h2>";
 }
     ?>
     <?php
