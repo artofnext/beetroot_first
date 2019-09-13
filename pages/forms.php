@@ -1,3 +1,9 @@
+<?PHP 
+
+if (isset($_GET['name'])) $name = $_GET['name'];
+else $name = "Not specified";
+
+echo <<<_END
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +19,7 @@
         <h1><a href="../index.html">Back</a></h1>
         <hr>
     </header>
+    <h2>Your name: $name<br>
     <form action="" method="GET">
         Name: <input value="Vasya" name="name" /><br>
         Birth: <input type="date" name="birth" /><br>
@@ -54,5 +61,6 @@
         <button type="button">Button</button>
     </form>
 </body>
-
 </html>
+_END
+?>
