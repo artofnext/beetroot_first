@@ -27,18 +27,19 @@ echo <<<_END
 _END;
 ?>
 <?php 
+//echo var_dump($skills);
 if ($skills) {
-    if (is_array($skills)) {
+    if (is_array($skills) && count($skills)>1) {
         echo "<h2>Your skills: </h2>";
         echo "<ul>";
         foreach ($skills as $skill) {
             echo "<li>" . $skill . "</li>";
         }
-        echo "</li>";
+        echo "</ul>";
     }
     else {
         echo "<h2>Your skill: </h2>";
-        echo "<p>" . $skills . "</p>";
+        echo "<p>" . $skills[0] . "</p>";
     }
 }
 else {
