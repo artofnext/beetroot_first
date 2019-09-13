@@ -1,10 +1,64 @@
 <?PHP 
 $skills = false;
-if (isset($_GET['name'])) {
-    $name = $_GET['name'];
-    $skills = $_GET['skills'];
+$formProps = [
+    'name',
+    'birth',
+    'gender',
+    'skills',
+    'lang',
+    'some_text'
+];
+
+$props;
+
+if (!$_GET['submitted']) {
+echo "<p>Form not submitted!<a href='../index.html'> Go Back!</a></p>";
+die;
 }
-else $name = "Not specified";
+
+echo "<h2>Submitted:</h2>";
+/*echo "<dl>";
+
+foreach ($formProps as $formItem) {
+
+    echo "<dt>" . $formItem . "</dt>" . "<dt>" . getProperty ($formItem) . "</dt>";
+}
+
+echo "</dl>";*/
+
+foreach ($formProps as $formItem) {
+
+    $dataset[$formItem] =  getProperty($formItem);
+}
+
+$renderedList = arrToDlWrapper($dataset);
+
+echo "<p>Rendered</p>" . $renderedList;
+
+/* wrap assoc array in dl list */
+function arrToDlWrapper ($dataset, $result = NULL) {
+    if (is_array($dataset)) {
+    $result = $result . "<dl>";
+        foreach ($dataset as $item => $value) {
+            $result = $result . "<dt>" . $item ;
+            if (is_array($value)) {
+                $result = $result . arrToDlWrapper($value, $result);
+            }
+            else $result = $result . "<dd>" . $value . "</dd>";
+            $result = $result . "</dt>";
+        };
+    $result = $result . "</dl>";
+    }
+    return $result;
+}
+
+
+function getProperty ($name) {
+    if (isset($_GET[$name])) {
+        return $_GET[$name];
+    }
+    return "Not specified";
+}
 
 echo <<<_END
 <!DOCTYPE html>
@@ -22,7 +76,7 @@ echo <<<_END
         <h1><a href="../index.html">Back</a></h1>
         <hr>
     </header>
-    <h2>Your name: $name</h2><br>
+    <h2>Your name: </h2><br>
     
 _END;
 ?>
@@ -45,54 +99,4 @@ if ($skills) {
 else {
     echo "<h2>You have no skills yet</h2>";
 }
-    ?>
-    <?php
-
-/* todo Hidden fields, lables */
-
-
-    echo <<<_END
-    <form action="" method="GET">
-        Name: <input value="Vasya" name="name" /><br>
-        Birth: <input type="date" name="birth" /><br>
-        Gender:
-        <!-- the same names of fields connect them -->
-        Male<input type="radio" name="gender" value="male" />
-        Femail<input type="radio" name="gender" value="femail" />
-        <br>
-        Skills: HTML <input type="checkbox" name="skills[]" value="html" />
-        CSS <input type="checkbox" name="skills[]" value="css" />
-        JavaScript <input type="checkbox" name="skills[]" value="js" /><br>
-        <!-- todo try diferent types -->
-        <br>
-        <select name="lang[]" size="3" multiple>
-            <option value="1">Opt1</option>
-            <option value="2" selected>Opt2</option>
-            <option value="3">Opt3</option>
-            <option value="4">Opt4</option>
-            <option value="5">Opt6</option> 
-        </select>
-        <br>
-
-        <!-- textarea preserve formatting of its content so if you put some tag inside it won't work-->
-        <textarea name="some_text" style="width: 50%; height: auto">Lorem ipsum dolor sit amet,consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        </textarea>
-
-        <br>
-
-        <!-- Submit form -->
-        <input type="submit" value="Go!" />
-
-        <!-- Just button, does nothing -->
-        <input type="button" value="Button" />
-
-        <!-- Thous work as they should -->
-        <button type="reset">Reset</button>
-
-        <!-- But behavier of this depends on browser, for submittion better use <input type="submit"> -->
-        <button type="button">Button</button>
-    </form>
-</body>
-</html>
-_END
 ?>
