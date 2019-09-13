@@ -15,8 +15,8 @@ if (!$_GET['submitted']) {
 echo "<p>Form not submitted!<a href='../index.html'> Go Back!</a></p>";
 die;
 }
-
-echo "<h2>Submitted:</h2>";
+echo "<!DOCTYPE html>";
+echo "<h1>Submitted:</h1>";
 /*echo "<dl>";
 
 foreach ($formProps as $formItem) {
@@ -33,7 +33,9 @@ foreach ($formProps as $formItem) {
 
 $renderedList = arrToDlWrapper($dataset);
 
-echo "<p>Rendered</p>" . $renderedList;
+echo "<p>Rendered:</p>" . $renderedList;
+
+echo "<h2><a href='../index.html'>Back</a></h2>";
 
 /* wrap assoc array in dl list */
 function arrToDlWrapper ($dataset, $result = NULL) {
@@ -59,30 +61,10 @@ function getProperty ($name) {
     }
     return "Not specified";
 }
-
-echo <<<_END
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-
-<body>
-    <header>
-        <h1><a href="../index.html">Back</a></h1>
-        <hr>
-    </header>
-    <h2>Your name: </h2><br>
-    
-_END;
 ?>
 <?php 
 //echo var_dump($skills);
-if ($skills) {
+/*if ($skills) {
     if (is_array($skills) && count($skills)>1) {
         echo "<h2>Your skills: </h2>";
         echo "<ul>";
@@ -98,5 +80,5 @@ if ($skills) {
 }
 else {
     echo "<h2>You have no skills yet</h2>";
-}
+}*/
 ?>
